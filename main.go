@@ -49,7 +49,6 @@ func main() {
 	}
 	defer file.Close()
 	fileBytes, _ := file.Read(fileData)
-
 	ch1 := make(chan result)
 	start := time.Now()
 	chunk := fileSize.Size() / 5
@@ -70,9 +69,7 @@ func main() {
 			totalWords += res1.totalWords
 			totalPunc += res1.totalPunc
 			totalLines += res1.totalLines
-
 		}
-
 	}
 	fmt.Println("words----> ", totalWords, "\nPuncuations-----> ", totalPunc, "\nLines-----> ", totalLines+1, "\nBytes read------> ", fileBytes)
 	fmt.Println("execution time ", time.Since(start))
